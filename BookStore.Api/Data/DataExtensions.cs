@@ -10,5 +10,8 @@ public static class DataExtensions
         using var scope = app.Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<BookStoreDbContext>();
         await dbContext.Database.MigrateAsync();
+
+        var logger = app.Services.GetRequiredService<ILoggerProvider>().CreateLogger("DataExtensions.MigrateDbAsync");
+        logger.LogInformation(1, "Database is ready");
     }
 }
