@@ -1,4 +1,5 @@
 using BookStore.Api.Data;
+using BookStore.Api.Endpoints;
 using BookStore.Api.Entity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,5 +19,6 @@ builder.Logging.AddJsonConsole(options =>
 
 var app = builder.Build();
 app.MapBookEndpoints();
+app.MapGenreEndpoints();
 await app.MigrateDbAsync();
 app.Run();
