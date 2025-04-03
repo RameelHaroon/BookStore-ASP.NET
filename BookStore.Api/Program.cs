@@ -20,5 +20,6 @@ builder.Logging.AddJsonConsole(options =>
 var app = builder.Build();
 app.MapBookEndpoints();
 app.MapGenreEndpoints();
+app.MapAuthorEndpoints();
 await app.MigrateDbAsync();
 app.Run();

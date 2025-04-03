@@ -38,7 +38,7 @@ public static class GenreEndpoints
         });
 
         // PUT Endpoint
-        routeGroup.MapPut("/v1/{id}", async (int id, UpdateGenreDto updatedGame, BookStoreDbContext dbContext) =>
+        routeGroup.MapPut("/v1/{id}", async (int id, UpdateGenreDto updatedAuthor, BookStoreDbContext dbContext) =>
         {
             var existingGenre = await dbContext.Genres.FindAsync(id);
             if (existingGenre is null)
@@ -46,7 +46,7 @@ public static class GenreEndpoints
                 return Results.NotFound();
             }
 
-            dbContext.Entry(existingGenre).CurrentValues.SetValues(updatedGame.ToGenreEntity(id));
+            dbContext.Entry(existingGenre).CurrentValues.SetValues(updatedAuthor.ToGenreEntity(id));
             await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
