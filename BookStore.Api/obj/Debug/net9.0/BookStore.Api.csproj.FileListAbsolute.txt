@@ -155,3 +155,11 @@ C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9
 C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\MinimalApis.Extensions.dll
 C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\MiniValidation.dll
 C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\obj\Debug\net9.0\BookStore.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Rameel\Desktop\Bookstore\BookStore-ASP.NET\BookStore.Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

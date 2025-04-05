@@ -25,7 +25,7 @@ public static class AuthorEndpoints
         {
             Author? author = await dbContext.Authors.FindAsync(id);
             return author is null ? Results.NoContent() : Results.Ok(author.ToAuthorDto());
-        }).WithName("GenreGetEndpoint");
+        }).WithName("AuthorGetEndpoint");
 
         // POST Endpoint
         routeGroup.MapPost("/v1", async (CreateAuthorDto newAuthor, BookStoreDbContext dbContext) =>
@@ -35,7 +35,7 @@ public static class AuthorEndpoints
             await dbContext.AddAsync(author);
             await dbContext.SaveChangesAsync();
 
-            return Results.CreatedAtRoute("GenreGetEndpoint", new { Id = author.Id }, author.ToAuthorDto());
+            return Results.CreatedAtRoute("AuthorGetEndpoint", new { Id = author.Id }, author.ToAuthorDto());
         }).RequireAuthorization(policy =>
         {
             policy.RequireRole("admin");
