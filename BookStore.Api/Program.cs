@@ -6,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
+builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddAuthorization();
+
 var connectionStr = builder.Configuration.GetConnectionString("BookStore");
 builder.Services.AddSqlite<BookStoreDbContext>(connectionStr);
 

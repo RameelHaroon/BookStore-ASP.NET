@@ -35,7 +35,11 @@ public static class GenreEndpoints
             await dbContext.SaveChangesAsync();
 
             return Results.CreatedAtRoute("GenreGetEndpoint", new { Id = genre.Id }, genre.ToGenreDto());
+        }).RequireAuthorization(policy =>
+        {
+            policy.RequireRole("admin");
         });
+
 
         // PUT Endpoint
         routeGroup.MapPut("/v1/{id}", async (int id, UpdateGenreDto updatedAuthor, BookStoreDbContext dbContext) =>
@@ -50,14 +54,22 @@ public static class GenreEndpoints
             await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
+        }).RequireAuthorization(policy =>
+        {
+            policy.RequireRole("admin");
         });
+
 
         // DELETE Endpoint
         routeGroup.MapDelete("/v1/{id}", async (int id, BookStoreDbContext dbContext) =>
         {
             await dbContext.Genres.Where(genre => genre.Id == id).ExecuteDeleteAsync();
             return Results.NoContent();
+        }).RequireAuthorization(policy =>
+        {
+            policy.RequireRole("admin");
         });
+
 
         return routeGroup;
     }

@@ -17,7 +17,8 @@ public static class BookEndpoints
         .Include(book => book.Genre)
         .Include(book => book.Author)
         .Select(book => book.ToBookSummaryDto())
-        .AsNoTracking().ToListAsync());
+        .AsNoTracking()
+        .ToListAsync());
 
         // GET By ID Endpoint
         routeGroup.MapGet("/v1/{id}", async (int id, BookStoreDbContext dbContext) =>
@@ -35,6 +36,9 @@ public static class BookEndpoints
             await dbContext.SaveChangesAsync();
 
             return Results.CreatedAtRoute("GetGameEndpoint", new { Id = book.Id }, book.ToBookDetailsDto());
+        }).RequireAuthorization(policy =>
+        {
+            policy.RequireRole("admin");
         });
 
         // PUT Endpoint
@@ -50,6 +54,9 @@ public static class BookEndpoints
             await dbContext.SaveChangesAsync();
 
             return Results.NoContent();
+        }).RequireAuthorization(policy =>
+        {
+            policy.RequireRole("admin");
         });
 
         // DELETE Endpoint
@@ -57,6 +64,9 @@ public static class BookEndpoints
         {
             await dbContext.Books.Where(book => book.Id == id).ExecuteDeleteAsync();
             return Results.NoContent();
+        }).RequireAuthorization(policy =>
+        {
+            policy.RequireRole("admin");
         });
 
         return routeGroup;
