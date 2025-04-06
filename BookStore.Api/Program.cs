@@ -1,3 +1,4 @@
+using BookStore.Api;
 using BookStore.Api.Data;
 using BookStore.Api.Endpoints;
 using BookStore.Api.Entity;
@@ -21,8 +22,11 @@ builder.Logging.AddJsonConsole(options =>
 });
 
 var app = builder.Build();
+
 app.MapBookEndpoints();
 app.MapGenreEndpoints();
 app.MapAuthorEndpoints();
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
 await app.MigrateDbAsync();
 app.Run();
